@@ -1,5 +1,5 @@
 # Actually serverless
-
+Connecting peers using torrent technologies.
 
 ## Install
 
@@ -39,6 +39,6 @@ stopLookingForPeers()
 peers.forEach(peer => peer.destroy())
 ```
 
-Try out the serverless chat room! See the [source](./src/App.tsx) for more advanced usage.
+Try out the [serverless chat room](https://ericwooley.github.io/actually-serverless/)! See the [source](./src/App.tsx) for more advanced usage.
 
 See the [readme](./README-CRA.md) for create react app, if you want to play with the demo src.

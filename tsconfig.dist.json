@@ -6,7 +6,6 @@
     "lib": ["es6", "dom"],
     "skipLibCheck": true,
     "sourceMap": true,
-    "allowJs": true,
     "moduleResolution": "node",
     "declaration": true,
     "rootDir": "src",

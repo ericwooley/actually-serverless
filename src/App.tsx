@@ -69,6 +69,9 @@ class App extends React.Component {
       }
     })
   }
+  componentWillMount() {
+    this.connect()
+  }
   sendMessage = (message: string) => {
     this.state.peers.forEach(({ peer }) => {
       const data: Message = { type: MessageTypes.chatMessage, payload: message }
@@ -81,7 +84,9 @@ class App extends React.Component {
       case MessageTypes.chatMessage:
         this.setState({
           messages: [
-            ...this.state.messages,
+            ...this.state.messages.slice(
+              Math.max(this.state.messages.length - 1000, 0)
+            ),
             peer.name + ": " + parsedMessage.payload
           ]
         })
