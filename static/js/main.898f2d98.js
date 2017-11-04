@@ -12289,6 +12289,9 @@ var App = /** @class */ (function (_super) {
         };
         return _this;
     }
+    App.prototype.componentDidMount = function () {
+        this.connect();
+    };
     App.prototype.render = function () {
         return (React.createElement("div", { className: "App" },
             this.state.connected ? (React.createElement("p", null,
@@ -25161,4 +25164,4 @@ exports.unregister = unregister;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.84fc33f5.js.map
+//# sourceMappingURL=main.898f2d98.js.map
