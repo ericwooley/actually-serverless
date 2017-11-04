@@ -1,0 +1,8 @@
+{
+  "extends": ["tslint-react", "tslint-config-standard"],
+  "rules": {
+    "space-before-function-paren": false,
+    "quotemark": "double",
+    "jsx-no-multiline-js": false
+  }
+}
