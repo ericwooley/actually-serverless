@@ -30,21 +30,42 @@ class App extends React.Component {
     msg: "",
     connected: false
   }
+  stopLookingForPeers: (cb: () => any) => any
+  disconnect = () => {
+    if (this.stopLookingForPeers) {
+      this.stopLookingForPeers(() => {
+        this.setState({
+          connected: false
+        })
+      })
+    }
+    this.state.peers.forEach(wrappedPeer => wrappedPeer.peer.destroy())
+    this.setState({
+      peers: []
+    })
+  }
   connect = async () => {
     this.setState({
       connected: true
     })
-    actuallyServerless({
+    this.stopLookingForPeers = actuallyServerless({
       connectionString: this.state.connectionString,
       onPeer: peer => {
         const peerWrap: IWrappedPeer = {
           peer,
-          name: "user " + (this.state.peers.length + 1)
+          name: "peer " + (this.state.peers.length + 1)
         }
         this.setState({
           peers: [...this.state.peers, peerWrap]
         })
         peer.onMessage(this.parseMessage(peerWrap))
+        peer.on("close", () => {
+          this.setState({
+            peers: this.state.peers.filter(
+              wrappedPeer => wrappedPeer.peer !== peer
+            )
+          })
+        })
       }
     })
   }
@@ -90,9 +111,12 @@ class App extends React.Component {
             {!this.state.peers.length
               ? "waiting for peers..."
               : this.state.peers.length + " peer(s)"}
+            <br />
+            <button onClick={this.disconnect}>Disconnect</button>
           </p>
         ) : (
           <p className="App-intro">
+            Room Name:{" "}
             <input
               value={this.state.connectionString}
               onChange={this.setConnectionStringFromEvent}
@@ -102,19 +126,20 @@ class App extends React.Component {
             <button onClick={this.connect}>connect</button>
           </p>
         )}
-
         <div style={messageStyle as any}>
           {this.state.messages.map((msg, index) => <p key={index}>{msg}</p>)}
         </div>
-        <form style={chatInputStyle as any} onSubmit={this.pushNewMessage}>
-          <input
-            value={this.state.msg}
-            onChange={this.updateMsg}
-            type="text"
-            style={{ flex: 1 }}
-          />
-          <button type="submit">Send</button>
-        </form>
+        {this.state.peers.length && (
+          <form style={chatInputStyle as any} onSubmit={this.pushNewMessage}>
+            <input
+              value={this.state.msg}
+              onChange={this.updateMsg}
+              type="text"
+              style={{ flex: 1 }}
+            />
+            <button type="submit">Send</button>
+          </form>
+        )}
       </div>
     )
   }
@@ -124,9 +149,11 @@ const chatInputStyle = {
   display: "flex",
   flex: 1,
   position: "fixed",
-  bottom: 10,
-  left: 10,
-  right: 10
+  bottom: 0,
+  left: 0,
+  right: 0,
+  padding: 10,
+  backgroundColor: "rgba(0, 0, 0, 1)"
 }
 const messageStyle = {
   border: "1px solid black",
