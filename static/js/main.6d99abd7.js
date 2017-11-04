@@ -12289,7 +12289,7 @@ var App = /** @class */ (function (_super) {
         };
         return _this;
     }
-    App.prototype.componentDidMount = function () {
+    App.prototype.componentWillMount = function () {
         this.connect();
     };
     App.prototype.render = function () {
@@ -25164,4 +25164,4 @@ exports.unregister = unregister;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.f9fc19e1.js.map
+//# sourceMappingURL=main.6d99abd7.js.map
