@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
-    "module": "esnext",
-    "target": "es6",
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es5",
     "lib": ["es6", "dom"],
+    "skipLibCheck": true,
     "sourceMap": true,
     "allowJs": true,
-    "jsx": "react",
     "moduleResolution": "node",
+    "declaration": true,
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -17,6 +18,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
+  "include": ["src/actually-serverless.ts"],
   "exclude": [
     "node_modules",
     "build",

@@ -3,6 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "sha1": "^1.1.1",
+    "simple-peer": "^8.1.1",
+    "webtorrent": "^0.98.20"
+  },
+  "main": "dist/actually-serverless",
+  "devDependencies": {
+    "@types/jest": "^21.1.5",
+    "@types/react": "^16.0.19",
+    "@types/react-dom": "^16.0.2",
+    "@types/sha1": "^1.1.1",
+    "@types/simple-peer": "^6.1.4",
+    "@types/webtorrent": "^0.98.4",
     "autoprefixer": "7.1.2",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
@@ -20,14 +32,12 @@
     "react": "^16.0.0",
     "react-dev-utils": "^4.0.1",
     "react-dom": "^16.0.0",
-    "sha1": "^1.1.1",
-    "simple-peer": "^8.1.1",
     "source-map-loader": "^0.2.1",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "ts-jest": "^20.0.7",
     "ts-loader": "^2.3.7",
-    "tslint": "^5.7.0",
+    "tslint": "^5.8.0",
     "tslint-config-standard": "^7.0.0",
     "tslint-loader": "^3.5.3",
     "tslint-react": "^3.2.0",
@@ -36,35 +46,18 @@
     "webpack": "3.5.1",
     "webpack-dev-server": "2.7.1",
     "webpack-manifest-plugin": "1.2.1",
-    "webtorrent": "^0.98.20",
     "whatwg-fetch": "2.0.3"
-  },
-  "devDependencies": {
-    "@types/jest": "^21.1.5",
-    "@types/node": "^8.0.47",
-    "@types/react": "^16.0.19",
-    "@types/react-dom": "^16.0.2",
-    "@types/sha1": "^1.1.1",
-    "@types/simple-peer": "^6.1.4",
-    "@types/webtorrent": "^0.98.4",
-    "tslint": "^5.8.0",
-    "tslint-config-standard": "^7.0.0",
-    "typescript": "^2.6.1",
-    "webtorrent": "^0.98.20"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "prepublish": "tsc -p tsconfig.dist.json"
   },
   "jest": {
     "mapCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,ts,tsx}"],
+    "setupFiles": ["<rootDir>/config/polyfills.js"],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.ts?(x)",
       "<rootDir>/src/**/?(*.)(spec|test).ts?(x)"
@@ -96,14 +89,13 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/ericwooley/projects/actually-serverless/packages/actually-serverless-demo/tsconfig.test.json"
+        "tsConfigFile":
+          "/Users/ericwooley/projects/actually-serverless/packages/actually-serverless-demo/tsconfig.test.json"
       }
     }
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
     "extends": "react-app"

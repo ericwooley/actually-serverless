@@ -2,14 +2,14 @@ import * as WebTorrent from "webtorrent"
 import { Wire } from "bittorrent-protocol"
 import * as Peer from "simple-peer"
 
-enum MessageTypes {
+export enum MessageTypes {
   INIT_CHECK,
   SIGNAL,
   USER_MESSAGE
 }
 const sha1 = require("sha1")
-type ExtWire = Wire & { extended: any; extendedHandshake: any }
-interface IActuallyServerlessOptions {
+export type ExtWire = Wire & { extended: any; extendedHandshake: any }
+export interface IActuallyServerlessOptions {
   connectionString: string
   seed?: boolean
   onPeer: (peer: ExtendedPeer) => any
