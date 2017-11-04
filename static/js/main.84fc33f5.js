@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "/actually-serverless/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 59);
@@ -2681,7 +2681,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = Object({"NODE_ENV":"production","PUBLIC_URL":""}).DEBUG;
+    r = Object({"NODE_ENV":"production","PUBLIC_URL":"/actually-serverless"}).DEBUG;
   }
 
   return r;
@@ -3526,7 +3526,7 @@ function load() {
 
   // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
   if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = Object({"NODE_ENV":"production","PUBLIC_URL":""}).DEBUG;
+    r = Object({"NODE_ENV":"production","PUBLIC_URL":"/actually-serverless"}).DEBUG;
   }
 
   return r;
@@ -25068,7 +25068,7 @@ var isLocalhost = Boolean(window.location.hostname === "localhost" ||
 function register() {
     if ("production" === "production" && "serviceWorker" in navigator) {
         // The URL constructor is available in all browsers that support SW.
-        var publicUrl = new URL("", window.location.toString());
+        var publicUrl = new URL("/actually-serverless", window.location.toString());
         if (publicUrl.origin !== window.location.origin) {
             // Our service worker won't work if PUBLIC_URL is on a different origin
             // from what our page is served on. This might happen if a CDN is used to
@@ -25076,7 +25076,7 @@ function register() {
             return;
         }
         window.addEventListener("load", function () {
-            var swUrl = "" + "/service-worker.js";
+            var swUrl = "/actually-serverless" + "/service-worker.js";
             if (!isLocalhost) {
                 // Is not local host. Just register service worker
                 registerValidSW(swUrl);
@@ -25161,4 +25161,4 @@ exports.unregister = unregister;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.4a22df9e.js.map
+//# sourceMappingURL=main.84fc33f5.js.map
