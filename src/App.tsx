@@ -55,7 +55,6 @@ class App extends React.Component {
           peer,
           name: "peer " + (this.state.peers.length + 1)
         }
-        window.scrollTo(0, Number.MAX_SAFE_INTEGER)
         this.setState({
           peers: [...this.state.peers, peerWrap]
         })
@@ -105,34 +104,39 @@ class App extends React.Component {
       msg: "",
       messages: [...this.state.messages, "me: " + this.state.msg]
     })
-    window.scrollTo(0, Number.MAX_SAFE_INTEGER)
     this.sendMessage(this.state.msg)
   }
   setConnectionStringFromEvent = (e: any) =>
     this.setState({ connectionString: e.target.value })
   render() {
+    window.scrollTo(0, Number.MAX_SAFE_INTEGER)
     return (
       <div className="App">
-        {this.state.connected ? (
-          <p>
-            {!this.state.peers.length
-              ? "waiting for peers..."
-              : this.state.peers.length + " peer(s)"}
-            <br />
-            <button onClick={this.disconnect}>Disconnect</button>
-          </p>
-        ) : (
-          <p className="App-intro">
-            Room Name:{" "}
-            <input
-              value={this.state.connectionString}
-              onChange={this.setConnectionStringFromEvent}
-              placeholder="Enter Connection String"
-            />
-            <br />
-            <button onClick={this.connect}>connect</button>
-          </p>
-        )}
+        <div style={{ position: "fixed", top: 30, right: 30 }}>
+          {this.state.connected ? (
+            <p>
+              {!this.state.peers.length
+                ? "waiting for peers..."
+                : this.state.peers.length +
+                  " peer(s) in room '" +
+                  this.state.connectionString +
+                  "'"}
+              <br />
+              <button onClick={this.disconnect}>Disconnect</button>
+            </p>
+          ) : (
+            <p className="App-intro">
+              Room Name:{" "}
+              <input
+                value={this.state.connectionString}
+                onChange={this.setConnectionStringFromEvent}
+                placeholder="Enter Connection String"
+              />
+              <br />
+              <button onClick={this.connect}>connect</button>
+            </p>
+          )}
+        </div>
         <div style={messageStyle as any}>
           {this.state.messages.map((msg, index) => <p key={index}>{msg}</p>)}
         </div>
@@ -163,6 +167,7 @@ const chatInputStyle = {
   backgroundColor: "rgba(0, 0, 0, 1)"
 }
 const messageStyle = {
+  minHeight: 300,
   border: "1px solid black",
   textAlign: "left",
   padding: 20,
