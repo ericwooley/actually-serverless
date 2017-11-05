@@ -55,6 +55,7 @@ class App extends React.Component {
           peer,
           name: "peer " + (this.state.peers.length + 1)
         }
+        window.scrollTo(0, Number.MAX_SAFE_INTEGER)
         this.setState({
           peers: [...this.state.peers, peerWrap]
         })
@@ -104,6 +105,7 @@ class App extends React.Component {
       msg: "",
       messages: [...this.state.messages, "me: " + this.state.msg]
     })
+    window.scrollTo(0, Number.MAX_SAFE_INTEGER)
     this.sendMessage(this.state.msg)
   }
   setConnectionStringFromEvent = (e: any) =>

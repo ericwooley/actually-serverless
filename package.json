@@ -1,7 +1,6 @@
 {
   "name": "actually-serverless-demo",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "sha1": "^1.1.1",
     "simple-peer": "^8.1.1",
