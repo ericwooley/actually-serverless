@@ -12238,6 +12238,7 @@ var App = /** @class */ (function (_super) {
                             peer: peer,
                             name: "peer " + (_this.state.peers.length + 1)
                         };
+                        window.scrollTo(0, Number.MAX_SAFE_INTEGER);
                         _this.setState({
                             peers: _this.state.peers.concat([peerWrap])
                         });
@@ -12282,6 +12283,7 @@ var App = /** @class */ (function (_super) {
                 msg: "",
                 messages: _this.state.messages.concat(["me: " + _this.state.msg])
             });
+            window.scrollTo(0, Number.MAX_SAFE_INTEGER);
             _this.sendMessage(_this.state.msg);
         };
         _this.setConnectionStringFromEvent = function (e) {
@@ -25056,4 +25058,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.9c38d772.js.map
+//# sourceMappingURL=main.3a290c43.js.map
