@@ -12293,7 +12293,7 @@ var App = /** @class */ (function (_super) {
         this.connect();
     };
     App.prototype.render = function () {
-        window.scrollTo(0, Number.MAX_SAFE_INTEGER);
+        requestAnimationFrame(function () { return window.scrollTo(0, Number.MAX_SAFE_INTEGER); });
         return (React.createElement("div", { className: "App" },
             React.createElement("div", { style: { position: "fixed", top: 30, right: 30 } }, this.state.connected ? (React.createElement("p", null,
                 !this.state.peers.length
@@ -25064,4 +25064,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.48f324c4.js.map
+//# sourceMappingURL=main.fbe627fd.js.map
