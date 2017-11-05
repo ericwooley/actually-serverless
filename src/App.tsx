@@ -109,7 +109,7 @@ class App extends React.Component {
   setConnectionStringFromEvent = (e: any) =>
     this.setState({ connectionString: e.target.value })
   render() {
-    window.scrollTo(0, Number.MAX_SAFE_INTEGER)
+    setTimeout(() => window.scrollTo(0, Number.MAX_SAFE_INTEGER), 100)
     return (
       <div className="App">
         <div style={{ position: "fixed", top: 30, right: 30 }}>
@@ -171,7 +171,10 @@ const messageStyle = {
   border: "1px solid black",
   textAlign: "left",
   padding: 20,
-  margin: 20
+  marginTop: 20,
+  marginLeft: 20,
+  marginRight: 20,
+  paddingBottom: 40
 }
 
 export default App
