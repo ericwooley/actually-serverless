@@ -12280,7 +12280,9 @@ var App = /** @class */ (function (_super) {
             e.preventDefault();
             _this.setState({
                 msg: "",
-                messages: _this.state.messages.concat(["me: " + _this.state.msg])
+                messages: _this.state.messages.slice(Math.max(_this.state.messages.length - 100, 0)).concat([
+                    "me: " + _this.state.msg
+                ])
             });
             _this.sendMessage(_this.state.msg);
         };
@@ -25069,4 +25071,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.0763a80f.js.map
+//# sourceMappingURL=main.132d0d99.js.map
