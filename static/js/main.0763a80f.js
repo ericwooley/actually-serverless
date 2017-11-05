@@ -12264,7 +12264,7 @@ var App = /** @class */ (function (_super) {
             switch (parsedMessage.type) {
                 case MessageTypes.chatMessage:
                     _this.setState({
-                        messages: _this.state.messages.slice(Math.max(_this.state.messages.length - 1000, 0)).concat([
+                        messages: _this.state.messages.slice(Math.max(_this.state.messages.length - 100, 0)).concat([
                             peer.name + ": " + parsedMessage.payload
                         ])
                     });
@@ -25069,4 +25069,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.4a3104c2.js.map
+//# sourceMappingURL=main.0763a80f.js.map
