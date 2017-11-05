@@ -12300,7 +12300,7 @@ var App = /** @class */ (function (_super) {
                 " ",
                 React.createElement("a", { target: "_blank", href: "https://github.com/ericwooley/actually-serverless" }, "Actually Serverless"),
                 ", P2P connections with no server to connect them."),
-            React.createElement("div", { style: { position: "fixed", top: 30, right: 30 } }, this.state.connected ? (React.createElement("p", null,
+            React.createElement("div", { style: { position: "fixed", top: 40, right: 30 } }, this.state.connected ? (React.createElement("p", null,
                 !this.state.peers.length
                     ? "waiting for peers..."
                     : this.state.peers.length +
@@ -25069,4 +25069,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.93ff464c.js.map
+//# sourceMappingURL=main.4a3104c2.js.map
