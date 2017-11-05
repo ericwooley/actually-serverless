@@ -102,7 +102,12 @@ class App extends React.Component {
     e.preventDefault()
     this.setState({
       msg: "",
-      messages: [...this.state.messages, "me: " + this.state.msg]
+      messages: [
+        ...this.state.messages.slice(
+          Math.max(this.state.messages.length - 1000, 0)
+        ),
+        "me: " + this.state.msg
+      ]
     })
     this.sendMessage(this.state.msg)
   }
