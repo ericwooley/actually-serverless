@@ -12334,7 +12334,7 @@ var messageStyle = {
     marginTop: 20,
     marginLeft: 20,
     marginRight: 20,
-    marginBottom: 200
+    paddingBottom: 200
 };
 exports.default = App;
 
@@ -25064,4 +25064,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.23d8a9e5.js.map
+//# sourceMappingURL=main.1f0074f3.js.map
