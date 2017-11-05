@@ -12238,7 +12238,6 @@ var App = /** @class */ (function (_super) {
                             peer: peer,
                             name: "peer " + (_this.state.peers.length + 1)
                         };
-                        window.scrollTo(0, Number.MAX_SAFE_INTEGER);
                         _this.setState({
                             peers: _this.state.peers.concat([peerWrap])
                         });
@@ -12283,7 +12282,6 @@ var App = /** @class */ (function (_super) {
                 msg: "",
                 messages: _this.state.messages.concat(["me: " + _this.state.msg])
             });
-            window.scrollTo(0, Number.MAX_SAFE_INTEGER);
             _this.sendMessage(_this.state.msg);
         };
         _this.setConnectionStringFromEvent = function (e) {
@@ -12295,18 +12293,22 @@ var App = /** @class */ (function (_super) {
         this.connect();
     };
     App.prototype.render = function () {
+        window.scrollTo(0, Number.MAX_SAFE_INTEGER);
         return (React.createElement("div", { className: "App" },
-            this.state.connected ? (React.createElement("p", null,
+            React.createElement("div", { style: { position: "fixed", top: 30, right: 30 } }, this.state.connected ? (React.createElement("p", null,
                 !this.state.peers.length
                     ? "waiting for peers..."
-                    : this.state.peers.length + " peer(s)",
+                    : this.state.peers.length +
+                        " peer(s) in room '" +
+                        this.state.connectionString +
+                        "'",
                 React.createElement("br", null),
                 React.createElement("button", { onClick: this.disconnect }, "Disconnect"))) : (React.createElement("p", { className: "App-intro" },
                 "Room Name:",
                 " ",
                 React.createElement("input", { value: this.state.connectionString, onChange: this.setConnectionStringFromEvent, placeholder: "Enter Connection String" }),
                 React.createElement("br", null),
-                React.createElement("button", { onClick: this.connect }, "connect"))),
+                React.createElement("button", { onClick: this.connect }, "connect")))),
             React.createElement("div", { style: messageStyle }, this.state.messages.map(function (msg, index) { return React.createElement("p", { key: index }, msg); })),
             this.state.peers.length && (React.createElement("form", { style: chatInputStyle, onSubmit: this.pushNewMessage },
                 React.createElement("input", { value: this.state.msg, onChange: this.updateMsg, type: "text", style: { flex: 1 } }),
@@ -12325,6 +12327,7 @@ var chatInputStyle = {
     backgroundColor: "rgba(0, 0, 0, 1)"
 };
 var messageStyle = {
+    minHeight: 300,
     border: "1px solid black",
     textAlign: "left",
     padding: 20,
@@ -25058,4 +25061,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.3a290c43.js.map
+//# sourceMappingURL=main.20634e28.js.map
