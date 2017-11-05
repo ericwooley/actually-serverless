@@ -12295,6 +12295,11 @@ var App = /** @class */ (function (_super) {
     App.prototype.render = function () {
         setTimeout(function () { return window.scrollTo(0, Number.MAX_SAFE_INTEGER); }, 100);
         return (React.createElement("div", { className: "App" },
+            React.createElement("p", null,
+                "Built using",
+                " ",
+                React.createElement("a", { target: "_blank", href: "https://github.com/ericwooley/actually-serverless" }, "Actually Serverless"),
+                ", P2P connections with no server to connect them."),
             React.createElement("div", { style: { position: "fixed", top: 30, right: 30 } }, this.state.connected ? (React.createElement("p", null,
                 !this.state.peers.length
                     ? "waiting for peers..."
@@ -25064,4 +25069,4 @@ function trueFn () {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.b2776a6b.js.map
+//# sourceMappingURL=main.93ff464c.js.map
