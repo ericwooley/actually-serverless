@@ -112,7 +112,16 @@ class App extends React.Component {
     setTimeout(() => window.scrollTo(0, Number.MAX_SAFE_INTEGER), 100)
     return (
       <div className="App">
-        <div style={{ position: "fixed", top: 30, right: 30 }}>
+        <p>
+          Built using{" "}
+          <a
+            target="_blank"
+            href="https://github.com/ericwooley/actually-serverless"
+          >
+            Actually Serverless
+          </a>, P2P connections with no server to connect them.
+        </p>
+        <div style={{ position: "fixed", top: 40, right: 30 }}>
           {this.state.connected ? (
             <p>
               {!this.state.peers.length

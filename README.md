@@ -16,7 +16,7 @@ or yarn
 Here is a very basic usage. 
 
 ```js
-import actuallyServerless from "./actually-serverless"
+import actuallyServerless from "actually-serverless"
 let peers = []
 const stopLookingForPeers = actuallyServerless({
     connectionString: "Any string you want to use to discover peers.",
