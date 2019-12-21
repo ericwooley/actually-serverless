@@ -10,6 +10,7 @@
     "declaration": true,
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,

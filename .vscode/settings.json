@@ -1,5 +1,4 @@
 {
-  "prettier.eslintIntegration": false,
   "prettier.useTabs": false,
   "tslint.autoFixOnSave": false,
   "prettier.singleQuote": false
